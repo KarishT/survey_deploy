@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Survey Form</title>
+  {% load staticfiles %}
+  <link rel="stylesheet" href="{% static 'survey/css/my.css'%}" media="screen" title="no title">
+</head>
+<body>
+  <h1>Please fill the survey form</h1>
+<form class="box" action="/surveys/process" method="post">
+  {% csrf_token %}
+  <ul>
+    <li>Your Name: <input type="text" name="name"></li>
+    <li> Dojo Location:<select name="selection">
+        <option value="Mountain View">Mountain View</option>
+        <option value="Seattle">Seattle</option>
+    </select></li>
+
+    <li>Favourite Language:<select name="selection1">
+
+      <option value="JAVA">JAVA</option>
+      <option value="python">Python</option>
+    </select></li>
+    <li><textarea name="comment" rows="8" cols="40"></textarea></li>
+    <li><input type="submit" name="submit" value="Submit"></li>
+ </ul>
+</form>
+</body>
+</html>
